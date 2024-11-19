@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MaxWithWrapper from "./MaxWithWrapper";
+import MaxWithWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
