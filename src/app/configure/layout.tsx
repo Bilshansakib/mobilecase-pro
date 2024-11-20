@@ -1,11 +1,15 @@
-import React from 'react';
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { ReactNode } from "react";
 
-const Layout = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const Layout = ({ children }: { children: ReactNode }) => {
+  return (
+    <div>
+      <MaxWidthWrapper className="flex-1 flex flex-col">
+        {/* <Steps /> */}
+        {children}
+      </MaxWidthWrapper>
+    </div>
+  );
 };
 
 export default Layout;
