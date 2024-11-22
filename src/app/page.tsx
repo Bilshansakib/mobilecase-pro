@@ -260,6 +260,7 @@ export default function Home() {
           </ul>
         </MaxWidthWrapper>
       </section>
+      
     </div>
   );
 }
