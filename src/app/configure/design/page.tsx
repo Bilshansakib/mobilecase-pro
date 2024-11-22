@@ -1,9 +1,15 @@
+interface PageProps {
+    searchParams: {
+      [key: string]: string | string[] | undefined
+    }
+  }
 
-const Page = () => {
+const Page = ({searchParams}: PageProps) => {
     // make db call
+    const {id } = searchParams
     return (
         <div>
-            
+            {id}
         </div>
     );
 };
