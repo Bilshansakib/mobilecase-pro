@@ -12,8 +12,9 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { COLORS, FINISHES, MATERIALS, MODELS } from "@/validators/option-validator";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { ArrowRight, Check, ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
+import { BASE_PRICE } from "@/config/products";
 interface DesignConfiguratorProps {
   configId: string;
   imageUrl: string;
@@ -242,6 +243,37 @@ const DesignConfigurator = ({
             </div>
           </div>
         </ScrollArea>
+        <div className='w-full px-8 h-16 bg-white'>
+          <div className='h-px w-full bg-zinc-200' />
+          <div className='w-full h-full flex justify-end items-center'>
+            <div className='w-full flex gap-6 items-center'>
+              <p className='font-medium whitespace-nowrap'>
+                {formatPrice(
+                  (BASE_PRICE + options.finish.price + options.material.price) /
+                    100
+                )}
+              </p>
+              {/* <Button
+                isLoading={isPending}
+                disabled={isPending}
+                loadingText="Saving"
+                onClick={() =>
+                  saveConfig({
+                    configId,
+                    color: options.color.value,
+                    finish: options.finish.value,
+                    material: options.material.value,
+                    model: options.model.value,
+                  })
+                }
+                size='sm'
+                className='w-full'>
+                Continue
+                <ArrowRight className='h-4 w-4 ml-1.5 inline' />
+              </Button> */}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
