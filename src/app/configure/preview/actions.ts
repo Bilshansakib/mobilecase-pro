@@ -40,6 +40,7 @@ export const createCheckoutSession = async ({
       configurationId: configuration.id,
     },
   });
+  console.log(user.id, configuration.id)
   if (existingOrder) {
     order = existingOrder;
   } else {
@@ -66,7 +67,7 @@ export const createCheckoutSession = async ({
     cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/configure/preview?id=${configuration.id}`,
     payment_method_types: ['card', 'paypal'],
     mode: 'payment',
-    shipping_address_collection: { allowed_countries: ['DE', 'US','BD'] },
+    shipping_address_collection: { allowed_countries: ['DE', 'US','BD','ID',"AU"] },
     metadata: {
       userId: user.id,
       orderId: order.id,
