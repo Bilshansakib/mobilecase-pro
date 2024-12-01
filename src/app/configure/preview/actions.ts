@@ -20,6 +20,8 @@ export const createCheckoutSession = async ({
 
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+  console.log(user.id)
+  console.log(user.id)
 
   if (!user) {
     throw new Error("You need to be logged in");
@@ -39,10 +41,12 @@ export const createCheckoutSession = async ({
       userId: user.id,
       configurationId: configuration.id,
     },
-  });
-  console.log(user.id, configuration.id)
+  })
+
+  console.log("hello000", user.id, configuration.id)
+
   if (existingOrder) {
-    order = existingOrder;
+    order = existingOrder
   } else {
     order = await db.order.create({
       data: {
@@ -50,7 +54,7 @@ export const createCheckoutSession = async ({
         userId: user.id,
         configurationId: configuration.id,
       },
-    });
+    })
   }
 
   const product = await stripe.products.create({
@@ -61,6 +65,7 @@ export const createCheckoutSession = async ({
       unit_amount: price,
     },
   })
+
 
   const stripeSession = await stripe.checkout.sessions.create({
     success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
@@ -74,6 +79,5 @@ export const createCheckoutSession = async ({
     },
     line_items: [{ price: product.default_price as string, quantity: 1 }],
   })
-
   return { url: stripeSession.url }
 };
