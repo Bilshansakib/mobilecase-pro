@@ -140,6 +140,7 @@ const DesignConfigurator = ({
           'There was a problem saving your config, please try again.',
         variant: 'destructive',
       })
+      console.error(err)
     }
   }
 
