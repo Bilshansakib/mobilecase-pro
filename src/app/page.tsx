@@ -225,7 +225,7 @@ export default function Home() {
                 />
               </div>
 
-              <Phone className='w-60' imgSrc='/horse_phone.jpg' />
+              <Phone className='w-60' imageSrc='/horse_phone.jpg' />
             </div>
           </div>
 

@@ -100,13 +100,13 @@ function Review({ imgSrc, className, ...props }: ReviewProps) {
       )}
       style={{ animationDelay }}
       {...props}>
-      <Phone imgSrc={imgSrc} />
+      <Phone imageSrc={imgSrc} />
     </div>
   )
 }
 
 function ReviewGrid() {
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | any | null>(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.4 })
   const columns = splitArray(PHONES, 3)
   const column1 = columns[0]

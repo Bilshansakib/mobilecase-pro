@@ -2,14 +2,20 @@ import { db } from "@/db";
 import { notFound } from "next/navigation";
 import DesignPreview from "./DesignPreview";
 
-interface PageProps {
-  searchParams: {
-    [key: string]: string | string[] | undefined;
-  };
-}
+// interface PageProps {
+//   searchParams: {
+//     [key: string]: string | string[] | undefined;
+//   };
+// }
+type Params = Promise<{ slug: string }>
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
+ 
 
-const Page = async ({ searchParams }: PageProps) => {
-  const { id } = searchParams;
+const Page = async (props: {
+  params: Params
+  searchParams: SearchParams
+}) => {
+  const { id } = await props.searchParams
 
   if (!id || typeof id !== "string") {
     return notFound();
