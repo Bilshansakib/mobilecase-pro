@@ -14,7 +14,7 @@ export const createCheckoutSession = async ({
   const configuration = await db.configuration.findUnique({
     where: { id: configId },
   })
-
+console.log(configuration)
   if (!configuration) {
     throw new Error('No such configuration found')
   }
