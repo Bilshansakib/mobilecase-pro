@@ -22,6 +22,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   const { toast } = useToast();
   const { id } = configuration;
   const { user } = useKindeBrowserClient();
+  console.log(user?.id)
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
 
@@ -61,6 +62,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   });
 
   const handleCheckout = () => {
+    console.log(user?.email)
     if (user) {
       // create payment session
       createPaymentSession({ configId: id });
