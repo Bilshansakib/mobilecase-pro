@@ -24,7 +24,7 @@ const Page = () => {
 
   if (data?.success) {
     console.log(configId)
-    if (!configId) {
+    if (configId) {
       localStorage.removeItem('configurationId')
       router.push(`/configure/preview?id=${configId}`)
     } else {
